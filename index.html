@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grunge – wallpaper maker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <h1 id="logo">Grunge</h1>
+  <p>Build a rotten, scratched, spray-tagged wallpaper. Drag on it to paint, then download it.</p>
+</header>
+
+<main class="layout">
+
+  <section class="stage-wrap">
+    <div class="stage" id="stage">
+      <canvas id="base" width="1280" height="720"></canvas>
+      <canvas id="paint" width="1280" height="720" aria-label="Wallpaper preview. Drag to paint."></canvas>
+      <span class="tape t1"></span><span class="tape t2"></span>
+    </div>
+    <div class="toolbar">
+      <button id="remix" class="btn">Remix</button>
+      <button id="download" class="btn">Download PNG</button>
+      <button id="full" class="btn ghost">Fullscreen</button>
+      <button id="clear" class="btn ghost">Wipe paint</button>
+    </div>
+  </section>
+
+  <aside class="panel">
+    <h2>Wreck it</h2>
+
+    <label>Grit <input type="range" id="grit" min="0" max="1" step="0.01" value="0.5"></label>
+    <label>Scratches <input type="range" id="scratch" min="0" max="1" step="0.01" value="0.55"></label>
+    <label>Grime and drips <input type="range" id="grime" min="0" max="1" step="0.01" value="0.5"></label>
+    <label>Splatter <input type="range" id="splat" min="0" max="1" step="0.01" value="0.4"></label>
+
+    <label class="txt">Scrawl
+      <input type="text" id="text" maxlength="24" value="stay loud" spellcheck="false">
+    </label>
+
+    <h2>Colours</h2>
+    <div class="crow"><span>Background from</span><input type="color" id="cBg0" value="#2b2724"><code id="vBg0"></code></div>
+    <div class="crow"><span>Background to</span><input type="color" id="cBg1" value="#3b2f27"><code id="vBg1"></code></div>
+    <div class="crow"><span>Stains and splatter</span><input type="color" id="cStain" value="#8a3b17"><code id="vStain"></code></div>
+    <div class="crow"><span>Scratches and text</span><input type="color" id="cLight" value="#d8c9a8"><code id="vLight"></code></div>
+    <button id="creset" class="btn ghost small" type="button">Reset colours</button>
+
+    <h2>Your hand</h2>
+    <div class="seg" role="group" aria-label="Tool">
+      <button id="tSpray" class="on" aria-pressed="true">Spray</button>
+      <button id="tScratch" aria-pressed="false">Scratch</button>
+    </div>
+    <label>Brush size <input type="range" id="size" min="8" max="90" step="1" value="30"></label>
+    <div class="swatches" id="swatches" aria-label="Paint colour"></div>
+
+    <label class="txt">Your picture
+      <input type="file" id="file" accept="image/*">
+    </label>
+    <button id="rmimg" class="btn ghost small" type="button">Remove picture</button>
+
+    <label class="txt">Save this look as a preset
+      <input type="text" id="pname" maxlength="24" placeholder="Name it (picture and colours are kept)">
+    </label>
+    <button id="psave" class="btn small" type="button">Save as preset</button>
+
+    <label class="txt">Download size
+      <select id="res">
+        <option value="1920x1080">1920 × 1080</option>
+        <option value="2560x1440">2560 × 1440</option>
+        <option value="3840x2160">3840 × 2160 (4K)</option>
+      </select>
+    </label>
+  </aside>
+
+</main>
+
+<section class="gallery">
+  <h2>Pick a surface</h2>
+  <div id="thumbs" class="thumbs"></div>
+</section>
+
+<footer>Tip: press space to remix. All wallpapers are generated in your browser.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
