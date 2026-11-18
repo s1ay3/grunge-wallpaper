@@ -155,7 +155,7 @@
   const KEY = 'grunge.presets.v1';
   const state = {
     preset: 'rust', seed: 7, grit: 0.5, scratch: 0.55, grime: 0.5, splat: 0.4,
-    text: 'stay loud', tool: 'spray', size: 30, color: null, img: null, custom: null
+    text: 'manga grunge', tool: 'spray', size: 30, color: null, img: null, custom: null
   };
 
   const base = $('base'), paint = $('paint');
